@@ -45,9 +45,7 @@ const CreateArticle = () => {
   const [Coverimage, setCoverImage] = useState();
   const [CoverimageURI, setCoverImageURI] = useState();
   const [mime, setMime] = useState('');
-  const [editorState, setEditorState] = useState(() =>
-    EditorState.createEmpty()
-  );
+  const [editorState, setEditorState] = useState(() => EditorState.createEmpty());
   const [convertedContent, setConvertedContent] = useState(null);
   const [title, setTitle] = useState('');
   const [preview, setPreview] = useState(false);
@@ -65,8 +63,7 @@ const CreateArticle = () => {
     let currentContentAsHTML = convertToHTML(editorState.getCurrentContent());
     setConvertedContent(currentContentAsHTML);
   };
-  const markup = convertedContent
-   
+  const markup = convertedContent;
 
   const createMarkup = (html) => {
     return {
@@ -88,7 +85,7 @@ const CreateArticle = () => {
         setMime(data.format);
         // console.log(data);
         // console.log('Image Uploaded');
-        alert("Cover Image Uploaded")
+        alert('Cover Image Uploaded');
       })
       .catch((err) => console.log(err));
   };
@@ -101,8 +98,7 @@ const CreateArticle = () => {
       attributes: [],
       external_url: null,
       name: title,
-      image:
-        'https://res.cloudinary.com/doybtqm8h/image/upload/v1655456517/fw9poxxmang3uyew3xen.jpg',
+      image: 'https://res.cloudinary.com/doybtqm8h/image/upload/v1655456517/fw9poxxmang3uyew3xen.jpg',
       imageMimeType: 'image/jpeg',
       media: [
         {
@@ -119,30 +115,21 @@ const CreateArticle = () => {
     //console.log(finalResult);
     //console.log(result)
     await createPost(profileId, finalResult);
-    alert('Post Published!')
-    window.location.href = `/${profileId}/profile`
+    alert('Post Published!');
+    window.location.href = `/${profileId}/profile`;
     //console.log(result);
   };
 
   return (
     <Container maxWidth="lg" sx={{ my: 10, mt: 7 }}>
       <div className="App">
-        <Typography
-          variant="h4"
-          sx={{ my: 5, color: ' #fffffe' }}
-          fontWeight={700}
-          gutterBottom
-        >
+        <Typography variant="h4" sx={{ my: 5, color: ' #fffffe' }} fontWeight={700} gutterBottom>
           Drop your thoughts
         </Typography>
         <FormGroup sx={{ color: ' #fffffe', mb: 5, alignItems: 'flex-end' }}>
           <FormControlLabel
             control={
-              <Switch
-                checked={preview}
-                onChange={(e) => setPreview(e.target.checked)}
-                aria-label="login switch"
-              />
+              <Switch checked={preview} onChange={(e) => setPreview(e.target.checked)} aria-label="login switch" />
             }
             label={preview ? 'Write in Editor' : 'Preview'}
           />
@@ -151,10 +138,7 @@ const CreateArticle = () => {
           <div style={{ color: ' #fffffe' }}>
             <h1>{title} </h1>
             <img style={{ width: '50%' }} src={CoverimageURI} alt={title} />
-            <div
-              className="preview"
-              dangerouslySetInnerHTML={createMarkup(convertedContent)}
-            ></div>
+            <div className="preview" dangerouslySetInnerHTML={createMarkup(convertedContent)}></div>
           </div>
         ) : (
           <>
@@ -179,12 +163,7 @@ const CreateArticle = () => {
             <Grid container spacing={2}>
               <Grid item xs={8}>
                 <div className="input-group mb-3">
-                  <input
-                    type="file"
-                    className="form-control"
-                    id="inputGroupFile02"
-                    onChange={handleCoverImage}
-                  />
+                  <input type="file" className="form-control" id="inputGroupFile02" onChange={handleCoverImage} />
                   <label className="input-group-text" for="inputGroupFile02">
                     Upload
                   </label>
@@ -211,12 +190,7 @@ const CreateArticle = () => {
             />
           </>
         )}
-        <Button
-          fullWidth
-          variant="contained"
-          sx={{ mt: 3, mb: 2, backgroundColor: '#7f5af0' }}
-          onClick={handle}
-        >
+        <Button fullWidth variant="contained" sx={{ mt: 3, mb: 2, backgroundColor: '#7f5af0' }} onClick={handle}>
           Publish
         </Button>
         {/* <Button

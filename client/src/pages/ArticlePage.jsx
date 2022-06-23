@@ -1,12 +1,12 @@
 /*eslint-disable*/
-import React, { useEffect, useState } from "react";
-import CssBaseline from "@mui/material/CssBaseline";
-import Grid from "@mui/material/Grid";
-import Container from "@mui/material/Container";
-import Main from "./Main";
-import Sidebar from "./Sidebar";
-import { useParams } from "react-router-dom";
-import { getPublication} from "../Lens/query";
+import React, { useEffect, useState } from 'react';
+import CssBaseline from '@mui/material/CssBaseline';
+import Grid from '@mui/material/Grid';
+import Container from '@mui/material/Container';
+import Main from './Main';
+import Sidebar from './Sidebar';
+import { useParams } from 'react-router-dom';
+import { getPublication } from '../Lens/query';
 
 export default function Blog() {
   const [data, setData] = useState();
@@ -46,7 +46,7 @@ export default function Blog() {
               name={data.profile.name}
               img={data.profile.picture.original.url}
               id={data.profile.id}
-              pubId = {pubId}
+              pubId={pubId}
             />
           )}
         </Grid>

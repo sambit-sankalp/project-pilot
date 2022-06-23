@@ -16,22 +16,14 @@ function SmallBlogCard({ title, content, id, img, date }) {
             <Typography component="h5" sx={{ color: '#fffffe' }} variant="h5">
               {title}
             </Typography>
-            <Typography
-              variant="body2"
-              sx={{ color: '#fffffe' }}
-              color="text.secondary"
-            >
+            <Typography variant="body2" sx={{ color: '#fffffe' }} color="text.secondary">
               {date}
             </Typography>
             <Typography variant="body2" sx={{ color: '#94a1b2' }}>
               {content}....
             </Typography>
             <Link style={{ textDecoration: 'none' }} href={`/${id}/article`}>
-              <Typography
-                variant="body2"
-                sx={{ color: '#7f5af0' }}
-                color="primary"
-              >
+              <Typography variant="body2" sx={{ color: '#7f5af0' }} color="primary">
                 Continue...
               </Typography>
             </Link>

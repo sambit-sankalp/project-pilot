@@ -23,8 +23,7 @@ import { getProfiles } from '../../Lens/query';
 function Navbar() {
   const classes = useStyles();
   const [data, setData] = useState('');
-  const { connectWallet, account, loginStat, login, profileId } =
-    useContext(Web3Context);
+  const { connectWallet, account, loginStat, login, profileId } = useContext(Web3Context);
   const [anchorElUser, setAnchorElUser] = useState(null);
 
   const getProfile = async () => {
@@ -33,7 +32,11 @@ function Navbar() {
       limit: 50,
     };
     const res2 = await getProfiles(a);
-    const res = res2.data.profiles.items.length ? res2.data.profiles.items[0].name?res2.data.profiles.items[0]:null : null;
+    const res = res2.data.profiles.items.length
+      ? res2.data.profiles.items[0].name
+        ? res2.data.profiles.items[0]
+        : null
+      : null;
     setData(res);
   };
 
@@ -104,23 +107,12 @@ function Navbar() {
               )}
               <Box sx={{ flexGrow: 0, ml: 1 }}>
                 <Tooltip title="Open menu">
-                  <IconButton
-                    onClick={handleOpenUserMenu}
-                    sx={{ p: 0, color: '#fffffe' }}
-                  >
+                  <IconButton onClick={handleOpenUserMenu} sx={{ p: 0, color: '#fffffe' }}>
                     {data ? (
                       <Chip
-                        avatar={
-                          <Avatar
-                            alt="profile"
-                            src={`${data.picture.original.url}`}
-                          />
-                        }
+                        avatar={<Avatar alt="profile" src={`${data.picture.original.url}`} />}
                         sx={{ p: 0, color: '#fffffe' }}
-                        label={`${String(account.currentAccount).slice(
-                          0,
-                          5
-                        )}...${String(account.currentAccount).slice(
+                        label={`${String(account.currentAccount).slice(0, 5)}...${String(account.currentAccount).slice(
                           String(account.currentAccount).length - 5
                         )}`}
                         variant="outlined"
@@ -129,10 +121,7 @@ function Navbar() {
                       <Chip
                         avatar={<Avatar />}
                         sx={{ p: 0, color: '#fffffe' }}
-                        label={`${String(account.currentAccount).slice(
-                          0,
-                          5
-                        )}...${String(account.currentAccount).slice(
+                        label={`${String(account.currentAccount).slice(0, 5)}...${String(account.currentAccount).slice(
                           String(account.currentAccount).length - 5
                         )}`}
                         variant="outlined"
@@ -157,11 +146,7 @@ function Navbar() {
                   onClose={handleCloseUserMenu}
                 >
                   {menu.map(({ link, text }) => (
-                    <Link
-                      style={{ textDecoration: 'none', color: '#000' }}
-                      key={text}
-                      to={link}
-                    >
+                    <Link style={{ textDecoration: 'none', color: '#000' }} key={text} to={link}>
                       <MenuItem onClick={handleCloseUserMenu}>
                         <Typography textAlign="center">{text}</Typography>
                       </MenuItem>

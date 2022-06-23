@@ -1,9 +1,9 @@
-import React, { useState, useEffect } from "react";
-import { CssBaseline, Grid, Typography } from "@mui/material";
-import Sidebar from "./Sidebar";
-import SmallBlogCard from "../profile/SmallBlogCard";
-import { getPublications } from "../../Lens/query";
-import {compiler} from 'markdown-to-jsx'
+import React, { useState, useEffect } from 'react';
+import { CssBaseline, Grid, Typography } from '@mui/material';
+import Sidebar from './Sidebar';
+import SmallBlogCard from '../profile/SmallBlogCard';
+import { getPublications } from '../../Lens/query';
+import { compiler } from 'markdown-to-jsx';
 
 const Trendings = () => {
   const [data1, setData1] = useState([]);
@@ -17,8 +17,8 @@ const Trendings = () => {
   }, []);
   const handlePub = async () => {
     const obj = {
-      profileId: "0x2eee",
-      publicationTypes: ["POST"],
+      profileId: '0x2eee',
+      publicationTypes: ['POST'],
       limit: 10,
     };
     const res = await getPublications(obj);
@@ -28,8 +28,8 @@ const Trendings = () => {
   };
   const handlePub2 = async () => {
     const obj = {
-      profileId: "0x2eae",
-      publicationTypes: ["POST"],
+      profileId: '0x2eae',
+      publicationTypes: ['POST'],
       limit: 10,
     };
     const res = await getPublications(obj);
@@ -39,8 +39,8 @@ const Trendings = () => {
   };
   const handlePub3 = async () => {
     const obj = {
-      profileId: "0x2d5b",
-      publicationTypes: ["POST"],
+      profileId: '0x2d5b',
+      publicationTypes: ['POST'],
       limit: 10,
     };
     const res = await getPublications(obj);
@@ -56,10 +56,10 @@ const Trendings = () => {
           <Typography
             variant="h4"
             sx={{
-              textAlign: "left",
-              fontSize: "2rem",
-              fontWeight: "bold",
-              color: "#fffffe",
+              textAlign: 'left',
+              fontSize: '2rem',
+              fontWeight: 'bold',
+              color: '#fffffe',
             }}
             gutterBottom
           >
@@ -67,7 +67,7 @@ const Trendings = () => {
           </Typography>
           {data1 &&
             data1.map((obj) => {
-              const { metadata, id,createdAt } = obj;
+              const { metadata, id, createdAt } = obj;
               const date = new Date(createdAt);
               return (
                 <SmallBlogCard
@@ -80,9 +80,9 @@ const Trendings = () => {
                 />
               );
             })}
-              {data2 &&
+          {data2 &&
             data2.map((obj) => {
-              const { metadata, id,createdAt } = obj;
+              const { metadata, id, createdAt } = obj;
               const date = new Date(createdAt);
               return (
                 <SmallBlogCard
@@ -95,9 +95,9 @@ const Trendings = () => {
                 />
               );
             })}
-                 {data3 &&
+          {data3 &&
             data3.map((obj) => {
-              const { metadata, id,createdAt } = obj;
+              const { metadata, id, createdAt } = obj;
               const date = new Date(createdAt);
               return (
                 <SmallBlogCard

@@ -6999,9 +6999,7 @@
   "ast": {
     "absolutePath": "project:/contracts/Pilot.sol",
     "exportedSymbols": {
-      "Pilot": [
-        122
-      ]
+      "Pilot": [122]
     },
     "id": 123,
     "license": "GPL-3.0",
@@ -7009,12 +7007,7 @@
     "nodes": [
       {
         "id": 38,
-        "literals": [
-          "solidity",
-          "^",
-          "0.8",
-          ".0"
-        ],
+        "literals": ["solidity", "^", "0.8", ".0"],
         "nodeType": "PragmaDirective",
         "src": "38:26:1"
       },
@@ -7026,9 +7019,7 @@
         "contractKind": "contract",
         "fullyImplemented": true,
         "id": 122,
-        "linearizedBaseContracts": [
-          122
-        ],
+        "linearizedBaseContracts": [122],
         "name": "Pilot",
         "nameLocation": "123:5:1",
         "nodeType": "ContractDefinition",
@@ -8026,9 +8017,7 @@
   "legacyAST": {
     "absolutePath": "project:/contracts/Pilot.sol",
     "exportedSymbols": {
-      "Pilot": [
-        122
-      ]
+      "Pilot": [122]
     },
     "id": 123,
     "license": "GPL-3.0",
@@ -8036,12 +8025,7 @@
     "nodes": [
       {
         "id": 38,
-        "literals": [
-          "solidity",
-          "^",
-          "0.8",
-          ".0"
-        ],
+        "literals": ["solidity", "^", "0.8", ".0"],
         "nodeType": "PragmaDirective",
         "src": "38:26:1"
       },
@@ -8053,9 +8037,7 @@
         "contractKind": "contract",
         "fullyImplemented": true,
         "id": 122,
-        "linearizedBaseContracts": [
-          122
-        ],
+        "linearizedBaseContracts": [122],
         "name": "Pilot",
         "nameLocation": "123:5:1",
         "nodeType": "ContractDefinition",

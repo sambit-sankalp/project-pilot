@@ -12,10 +12,10 @@ theme = responsiveFontSizes(theme);
 ReactDOM.render(
   <Web3Provider>
     <ThemeProvider theme={theme}>
-    <App />
-  </ThemeProvider>
+      <App />
+    </ThemeProvider>
   </Web3Provider>,
-  
+
   document.getElementById('root')
 );
 

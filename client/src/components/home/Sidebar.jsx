@@ -26,9 +26,7 @@ const Sidebar = () => {
       limit: 1,
     };
     const res = await getPublications(obj);
-    setData1(
-      res.data.publications.items.length ? res.data.publications.items : null
-    );
+    setData1(res.data.publications.items.length ? res.data.publications.items : null);
     //console.log(res)
     //console.log(res.data.publications.items[0].metadata.content);
   };
@@ -39,9 +37,7 @@ const Sidebar = () => {
       limit: 1,
     };
     const res = await getPublications(obj);
-    setRecent(
-      res.data.publications.items.length ? res.data.publications.items : null
-    );
+    setRecent(res.data.publications.items.length ? res.data.publications.items : null);
     //console.log(res)
     //console.log(res.data.publications.items[0].metadata.content);
   };
@@ -99,11 +95,7 @@ const Sidebar = () => {
         >
           {data &&
             data.map(({ picture, id, name, handle }) => (
-              <Link
-                key={id}
-                style={{ textDecoration: 'none' }}
-                to={`/${id}/profile`}
-              >
+              <Link key={id} style={{ textDecoration: 'none' }} to={`/${id}/profile`}>
                 <Stack
                   direction="column"
                   sx={{

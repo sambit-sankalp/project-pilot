@@ -1,5 +1,4 @@
-
-import { ApolloClient, InMemoryCache, HttpLink, ApolloLink } from '@apollo/client'
+import { ApolloClient, InMemoryCache, HttpLink, ApolloLink } from '@apollo/client';
 
 const httpLink = new HttpLink({ uri: 'https://api-mumbai.lens.dev/' });
 
@@ -12,8 +11,8 @@ const authLink = new ApolloLink((operation, forward) => {
   // Use the setContext method to set the HTTP headers.
   operation.setContext({
     headers: {
-      'x-access-token': token ? `Bearer ${token}` : ''
-    }
+      'x-access-token': token ? `Bearer ${token}` : '',
+    },
   });
 
   // Call the next link in the middleware chain.
@@ -23,4 +22,4 @@ const authLink = new ApolloLink((operation, forward) => {
 export const apolloClient = new ApolloClient({
   link: authLink.concat(httpLink),
   cache: new InMemoryCache(),
-})
+});

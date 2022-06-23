@@ -1,12 +1,12 @@
-import {apolloClient} from '../utils/apolloClient';
-import { gql } from '@apollo/client'
+import { apolloClient } from '../utils/apolloClient';
+import { gql } from '@apollo/client';
 
 // authentication & challenge query
 const GET_CHALLENGE = `
   query($request: ChallengeRequest!) {
     challenge(request: $request) { text }
   }
-`
+`;
 const AUTHENTICATION = `
   mutation($request: SignedAuthChallenge!) { 
     authenticate(request: $request) {
@@ -14,21 +14,21 @@ const AUTHENTICATION = `
       refreshToken
     }
  }
-`
+`;
 
 export const generateChallenge = (address) => {
-   return apolloClient.query({
+  return apolloClient.query({
     query: gql(GET_CHALLENGE),
     variables: {
       request: {
-         address,
+        address,
       },
     },
-  })
-}
+  });
+};
 
 export const authenticate = (address, signature) => {
-   return apolloClient.mutate({
+  return apolloClient.mutate({
     mutation: gql(AUTHENTICATION),
     variables: {
       request: {
@@ -36,8 +36,8 @@ export const authenticate = (address, signature) => {
         signature,
       },
     },
-  })
-}
+  });
+};
 
 const REFRESH_AUTHENTICATION = `
   mutation($request: RefreshRequest!) { 
@@ -46,18 +46,18 @@ const REFRESH_AUTHENTICATION = `
       refreshToken
     }
  }
-`
+`;
 
 export const refreshAuth = (refreshToken) => {
-   return apolloClient.mutate({
+  return apolloClient.mutate({
     mutation: gql(REFRESH_AUTHENTICATION),
     variables: {
       request: {
         refreshToken,
       },
     },
-  })
-}
+  });
+};
 
 const CREATE_PROFILE = `
   mutation($request: CreateProfileRequest!) { 
@@ -71,17 +71,16 @@ const CREATE_PROFILE = `
             __typename
     }
  }
-`
+`;
 
 export const createProfile = (createProfileRequest) => {
-   return apolloClient.mutate({
+  return apolloClient.mutate({
     mutation: gql(CREATE_PROFILE),
     variables: {
-      request: createProfileRequest
+      request: createProfileRequest,
     },
-  })
-}
-
+  });
+};
 
 const GET_PROFILES = `
   query($request: ProfileQueryRequest!) {
@@ -172,16 +171,16 @@ const GET_PROFILES = `
       }
     }
   }
-`
+`;
 
 export const getProfiles = (request) => {
-   return apolloClient.query({
+  return apolloClient.query({
     query: gql(GET_PROFILES),
     variables: {
-      request
+      request,
     },
-  })
-}
+  });
+};
 
 const CREATE_SET_PROFILE_METADATA_TYPED_DATA = `
   mutation($request: CreatePublicSetProfileMetadataURIRequest!) { 
@@ -251,16 +250,16 @@ const CREATE_SET_PROFILE_IMAGE_URI_TYPED_DATA = `
       }
     }
  }
-`
+`;
 
 export const createSetProfileImageUriTypedData = (request) => {
-   return apolloClient.mutate({
+  return apolloClient.mutate({
     mutation: gql(CREATE_SET_PROFILE_IMAGE_URI_TYPED_DATA),
     variables: {
-      request
+      request,
     },
-  })
-}
+  });
+};
 
 const CREATE_POST_TYPED_DATA = `
   mutation($request: CreatePublicPostRequest!) { 
@@ -293,16 +292,16 @@ const CREATE_POST_TYPED_DATA = `
     }
    }
  }
-`
+`;
 
 export const createPostTypedData = (createPostTypedDataRequest) => {
-   return apolloClient.mutate({
+  return apolloClient.mutate({
     mutation: gql(CREATE_POST_TYPED_DATA),
     variables: {
-      request: createPostTypedDataRequest
+      request: createPostTypedDataRequest,
     },
-  })
-}
+  });
+};
 
 const GET_PUBLICATIONS = `
   query($request: PublicationsQueryRequest!) {
@@ -603,16 +602,16 @@ const GET_PUBLICATIONS = `
       }
     }
   }
-`
+`;
 
 export const getPublications = (getPublicationQuery) => {
-   return apolloClient.query({
+  return apolloClient.query({
     query: gql(GET_PUBLICATIONS),
     variables: {
-      request: getPublicationQuery
+      request: getPublicationQuery,
     },
-  })
-}
+  });
+};
 
 const GET_PUBLICATION = `
   query($request: PublicationQueryRequest!) {
@@ -911,18 +910,18 @@ const GET_PUBLICATION = `
       }
     }
   }
-`
+`;
 
 export const getPublication = (publicationId) => {
-   return apolloClient.query({
+  return apolloClient.query({
     query: gql(GET_PUBLICATION),
     variables: {
       request: {
-        publicationId
-      }
+        publicationId,
+      },
     },
-  })
-}
+  });
+};
 
 const DOES_FOLLOW = `
   query($request: DoesFollowRequest!) {
@@ -932,16 +931,15 @@ const DOES_FOLLOW = `
         follows
         }
   }
-`
+`;
 
 export const doesFollow = (followInfos) => {
-   return apolloClient.query({
+  return apolloClient.query({
     query: gql(DOES_FOLLOW),
     variables: {
       request: {
-         followInfos,
+        followInfos,
       },
     },
-  })
-}
-
+  });
+};

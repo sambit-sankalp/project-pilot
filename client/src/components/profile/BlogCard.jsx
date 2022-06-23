@@ -16,25 +16,14 @@ function BlogCard(props) {
             <Typography component="h2" sx={{ color: '#fffffe' }} variant="h5">
               {props.title}
             </Typography>
-            <Typography
-              variant="subtitle1"
-              sx={{ color: '#fffffe' }}
-              color="text.secondary"
-            >
+            <Typography variant="subtitle1" sx={{ color: '#fffffe' }} color="text.secondary">
               {props.date}
             </Typography>
             <Typography variant="subtitle1" sx={{ color: '#94a1b2' }} paragraph>
               {compiler(String(props.content).slice(0, 60))}....
             </Typography>
-            <Link
-              style={{ textDecoration: 'none' }}
-              href={`/${props.id}/article`}
-            >
-              <Typography
-                sx={{ color: '#7f5af0' }}
-                variant="subtitle1"
-                color="primary"
-              >
+            <Link style={{ textDecoration: 'none' }} href={`/${props.id}/article`}>
+              <Typography sx={{ color: '#7f5af0' }} variant="subtitle1" color="primary">
                 Continue reading...
               </Typography>
             </Link>

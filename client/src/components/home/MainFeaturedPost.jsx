@@ -58,7 +58,7 @@ function MainFeaturedPost(props) {
             <Link
               style={{
                 color: '#7f5af0',
-                textDecoration: 'none'
+                textDecoration: 'none',
               }}
               to={`/${props.id}/article`}
             >

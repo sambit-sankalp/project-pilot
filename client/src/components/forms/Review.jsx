@@ -48,12 +48,7 @@ export default function Review() {
         <Grid container spacing={2}>
           <Grid item xs={8}>
             <div className="input-group mb-3">
-              <input
-                type="file"
-                className="form-control"
-                id="inputGroupFile02"
-                onChange={handleProfileImage}
-              />
+              <input type="file" className="form-control" id="inputGroupFile02" onChange={handleProfileImage} />
               <label className="input-group-text" for="inputGroupFile02">
                 Upload
               </label>

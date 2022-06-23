@@ -56,7 +56,7 @@ export default function PaymentForm() {
       .then((data) => {
         setCoverImageURI(data.url);
         //console.log('Image Uploaded')
-        alert("Cover Image Uploaded");
+        alert('Cover Image Uploaded');
       })
       .catch((err) => console.log(err));
   };
@@ -75,7 +75,7 @@ export default function PaymentForm() {
     const str = 'https://ipfs.io/ipfs/';
     const finalResult = str.concat(String(result.path));
     //console.log(result)
-   // console.log(finalResult);
+    // console.log(finalResult);
 
     await setProfileMetadata(profileId, finalResult);
     alert('Details Added');
@@ -126,16 +126,8 @@ export default function PaymentForm() {
         <Grid item xs={12}>
           <Grid container spacing={2}>
             <Grid item xs={8}>
-          
               <div className="input-group mb-3">
-               
-                <input
-                  type="file"
-                  className="form-control"
-                  id="inputGroupFile02"
-                  onChange={handleCoverImage}
-                  
-                />
+                <input type="file" className="form-control" id="inputGroupFile02" onChange={handleCoverImage} />
                 <label className="input-group-text" for="inputGroupFile02">
                   Upload Cover Image
                 </label>

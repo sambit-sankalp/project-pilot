@@ -9,7 +9,7 @@ import { Link } from 'react-router-dom';
 import { doesFollow } from '../Lens/query';
 import { follow } from '../Lens/utils/pilot-utils';
 import { getPublications } from '../Lens/query';
-import {compiler}from 'markdown-to-jsx'
+import { compiler } from 'markdown-to-jsx';
 import Web3Context from '../context';
 
 function Sidebar(props) {
@@ -18,7 +18,7 @@ function Sidebar(props) {
   const { lensHub, account } = useContext(Web3Context);
   useEffect(() => {
     doesfollow();
-    handlePub1()
+    handlePub1();
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [account.currentAccount]);
   const Follow = async () => {
@@ -38,19 +38,17 @@ function Sidebar(props) {
   const handlePub1 = async () => {
     const obj = {
       profileId: props.id,
-      publicationTypes: ["POST"],
+      publicationTypes: ['POST'],
       limit: 4,
     };
     const res = await getPublications(obj);
-    const rest =  res.data.publications.items.length ? res.data.publications.items : null
+    const rest = res.data.publications.items.length ? res.data.publications.items : null;
     const result = rest.filter(checkPub);
 
     function checkPub(pub) {
       return pub.id != props.pubId;
     }
-    setData1(
-      result.length>=1?result:null
-    );
+    setData1(result.length >= 1 ? result : null);
     //console.log(res)
     //console.log(res.data.publications.items[0].metadata.content);
   };
@@ -68,12 +66,7 @@ function Sidebar(props) {
           textAlign: 'center',
         }}
       >
-        <Typography
-          variant="h6"
-          fontWeight={700}
-          sx={{ color: '#fffffe' }}
-          gutterBottom
-        >
+        <Typography variant="h6" fontWeight={700} sx={{ color: '#fffffe' }} gutterBottom>
           About the Author
         </Typography>
         <img
@@ -87,11 +80,7 @@ function Sidebar(props) {
           alt="user"
         />
         <Link style={{ textDecoration: 'none' }} to={`/${props.id}/profile`}>
-          <Typography
-            variant="h5"
-            fontWeight={700}
-            sx={{ mt: 2, color: '#fffffe' }}
-          >
+          <Typography variant="h5" fontWeight={700} sx={{ mt: 2, color: '#fffffe' }}>
             {props.name}
           </Typography>
         </Link>
@@ -105,11 +94,7 @@ function Sidebar(props) {
           }}
         >
           {!follows ? (
-            <Button
-              variant="contained"
-              sx={{ backgroundColor: '#7f5af0', color: '#fffffe' }}
-              onClick={Follow}
-            >
+            <Button variant="contained" sx={{ backgroundColor: '#7f5af0', color: '#fffffe' }} onClick={Follow}>
               Follow
             </Button>
           ) : (
@@ -118,34 +103,26 @@ function Sidebar(props) {
             </Button>
           )}
         </Stack>
-        <Typography sx={{ mt: 2, px: 1, color: '#94a1b2' }}>
-          {props.bio}
-        </Typography>
+        <Typography sx={{ mt: 2, px: 1, color: '#94a1b2' }}>{props.bio}</Typography>
       </Paper>
-      <Typography
-        variant="h6"
-        fontWeight={700}
-        gutterBottom
-        sx={{ mt: 3, color: '#fffffe' }}
-      >
+      <Typography variant="h6" fontWeight={700} gutterBottom sx={{ mt: 3, color: '#fffffe' }}>
         More from the Author
       </Typography>
       {data1 &&
-            data1.map((obj) => {
-              const { metadata, id,createdAt } = obj;
-              const date = new Date(createdAt);
-              return (
-                <SmallBlogCard
-                  content={compiler(String(metadata.content).slice(0, 80))}
-                  title={metadata.name}
-                  img={metadata.media[0].original.url}
-                  date={String(date).slice(3, 10)}
-                  key={id}
-                  id={id}
-                />
-              );
-            })}
-   
+        data1.map((obj) => {
+          const { metadata, id, createdAt } = obj;
+          const date = new Date(createdAt);
+          return (
+            <SmallBlogCard
+              content={compiler(String(metadata.content).slice(0, 80))}
+              title={metadata.name}
+              img={metadata.media[0].original.url}
+              date={String(date).slice(3, 10)}
+              key={id}
+              id={id}
+            />
+          );
+        })}
     </Grid>
   );
 }

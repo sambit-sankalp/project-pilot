@@ -5,16 +5,7 @@ import { follow } from '../../Lens/utils/pilot-utils';
 import { doesFollow } from '../../Lens/query';
 
 // Libraries
-import {
-  Grid,
-  Typography,
-  Card,
-  CardContent,
-  Button,
-  IconButton,
-  Stack,
-  Container,
-} from '@mui/material';
+import { Grid, Typography, Card, CardContent, Button, IconButton, Stack, Container } from '@mui/material';
 import makeStyles from '@mui/styles/makeStyles';
 import { Facebook, Instagram, Mail, Twitter } from '@mui/icons-material';
 import Web3Context from '../../context';
@@ -58,9 +49,7 @@ const UserCard = () => {
     };
     const res2 = await getProfiles(a);
     //console.log(res2);
-    const res = res2.data.profiles.items[0].name
-      ? res2.data.profiles.items[0]
-      : null;
+    const res = res2.data.profiles.items[0].name ? res2.data.profiles.items[0] : null;
     setData(res);
     //console.log(res.coverPicture.original.url);
   };
@@ -87,28 +76,15 @@ const UserCard = () => {
             <Grid container>
               <Grid item md={4} sm={12} className={classes.gridPadding}>
                 {data && (
-                  <img
-                    className={classes.profileImage}
-                    src={`${data.picture.original.url}`}
-                    alt="Sambit Sankalp"
-                  />
+                  <img className={classes.profileImage} src={`${data.picture.original.url}`} alt="Sambit Sankalp" />
                 )}
                 <Stack direction="row" spacing={2} sx={{ mt: 2, width: '80%' }}>
                   {!follows ? (
-                    <Button
-                      fullWidth
-                      variant="contained"
-                      sx={{ backgroundColor: '#7f5af0' }}
-                      onClick={Follow}
-                    >
+                    <Button fullWidth variant="contained" sx={{ backgroundColor: '#7f5af0' }} onClick={Follow}>
                       Follow
                     </Button>
                   ) : (
-                    <Button
-                      fullWidth
-                      variant="outlined"
-                      sx={{ color: '#7f5af0' }}
-                    >
+                    <Button fullWidth variant="outlined" sx={{ color: '#7f5af0' }}>
                       Following
                     </Button>
                   )}
@@ -130,36 +106,18 @@ const UserCard = () => {
                         {data && <span>{data.handle}</span>}
                       </Typography>
                     </div>
-                    <Stack
-                      direction="row"
-                      spacing={2}
-                      sx={{ mt: 2, color: '#fffffe' }}
-                    >
+                    <Stack direction="row" spacing={2} sx={{ mt: 2, color: '#fffffe' }}>
                       <Typography variant="h6">
-                        {data && (
-                          <span style={{ fontWeight: 700 }}>
-                            {data.stats.totalFollowers}
-                          </span>
-                        )}{' '}
-                        Followers
+                        {data && <span style={{ fontWeight: 700 }}>{data.stats.totalFollowers}</span>} Followers
                       </Typography>
                       <Typography variant="h6">
-                        {data && (
-                          <span style={{ fontWeight: 700 }}>
-                            {data.stats.totalPosts}
-                          </span>
-                        )}{' '}
-                        posts
+                        {data && <span style={{ fontWeight: 700 }}>{data.stats.totalPosts}</span>} posts
                       </Typography>
                       {/* <Typography variant="h6">
                       <span style={{ fontWeight: 700 }}>67</span> subscribers
                     </Typography> */}
                     </Stack>
-                    <Stack
-                      direction="row"
-                      spacing={1}
-                      sx={{ mt: 2, color: '#fffffe' }}
-                    >
+                    <Stack direction="row" spacing={1} sx={{ mt: 2, color: '#fffffe' }}>
                       {/* <Typography variant="h6">
                         <span style={{ fontWeight: 700 }}>Genre</span> -{' '}
                       </Typography>
@@ -200,10 +158,7 @@ const UserCard = () => {
                         Bussiness
                       </Typography> */}
                     </Stack>
-                    <Typography
-                      sx={{ mt: 3.5, color: '#94a1b2' }}
-                      variant="body1"
-                    >
+                    <Typography sx={{ mt: 3.5, color: '#94a1b2' }} variant="body1">
                       {data && <>{data.bio}</>}
                     </Typography>
                     <Stack

@@ -1,0 +1,7 @@
+// .eslintignore
+client/build/*
+client/public/*
+client/src/service-worker.js
+client/src/serviceWorkerRegistration.js
+client/src/setupTests.js
+client/src/reportWebVitals.js
